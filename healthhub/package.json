@@ -1,0 +1,51 @@
+{
+  "name": "healthhub",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:healthhub": "node dist/healthhub/server/server.mjs"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/cdk": "19.2.8",
+    "@angular/common": "19.2.5",
+    "@angular/compiler": "19.2.5",
+    "@angular/core": "19.2.5",
+    "@angular/forms": "19.2.5",
+    "@angular/material": "19.2.8",
+    "@angular/platform-browser": "19.2.5",
+    "@angular/platform-browser-dynamic": "19.2.5",
+    "@angular/platform-server": "19.2.5",
+    "@angular/router": "19.2.5",
+    "@angular/ssr": "19.2.6",
+    "@apollo/client": "3.8.10",
+    "apollo-angular": "5.0.0",
+    "express": "^4.21.2",
+    "graphql": "16.8.1",
+    "rxjs": "7.8.1",
+    "tslib": "2.6.2",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "19.2.6",
+    "@angular/cli": "19.2.6",
+    "@angular/compiler-cli": "19.2.5",
+    "@graphql-codegen/cli": "5.0.5",
+    "@graphql-codegen/typescript": "4.1.6",
+    "@graphql-codegen/typescript-operations": "4.6.0",
+    "@types/express": "4.17.17",
+    "@types/jasmine": "5.1.3",
+    "@types/node": "18.18.3",
+    "jasmine-core": "5.6.0",
+    "karma": "6.4.2",
+    "karma-chrome-launcher": "3.2.0",
+    "karma-coverage": "2.2.0",
+    "karma-jasmine": "5.1.0",
+    "karma-jasmine-html-reporter": "2.1.0",
+    "typescript": "~5.7.2"
+  }
+}

@@ -1,0 +1,10 @@
+<!-- src/app/patient-profile/patient-profile.component.html -->
+@if (user$ | async; as user) {
+  <div>
+    <h2>Patient Profile</h2>
+    <p>Name: {{ user }}</p>
+    <p>Age: {{ user }}</p>
+  </div>
+} @else {
+  <p>Loading patient data...</p>
+}
