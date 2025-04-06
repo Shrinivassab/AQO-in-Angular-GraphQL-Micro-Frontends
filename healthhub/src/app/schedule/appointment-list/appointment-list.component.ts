@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScheduleService } from '../../services/schedule.service';
-import { GetAppointmentsQuery } from '../../gql/operations';
+import { Get_AppointmentsQuery } from '../../gql/operations';
 
 @Component({
   selector: 'app-appointment-list',
@@ -11,7 +11,7 @@ import { GetAppointmentsQuery } from '../../gql/operations';
   styleUrls: ['./appointment-list.component.scss'],
 })
 export class AppointmentListComponent implements OnInit {
-  appointments$: Observable<GetAppointmentsQuery> | undefined; // Use the generated type
+  appointments$: Observable<Get_AppointmentsQuery> | undefined; // Use the generated type
 
   constructor(private scheduleService: ScheduleService) {}
 

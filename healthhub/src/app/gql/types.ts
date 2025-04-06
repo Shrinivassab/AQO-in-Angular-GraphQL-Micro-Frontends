@@ -1,6 +1,3 @@
-import { gql } from 'apollo-angular';
-import { Injectable } from '@angular/core';
-import * as Apollo from 'apollo-angular';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -41,56 +38,3 @@ export type Query = {
 export type QueryGetPatientArgs = {
   id: Scalars['ID']['input'];
 };
-
-export type GetPatientQueryVariables = Exact<{
-  id: Scalars['ID']['input'];
-}>;
-
-
-export type GetPatientQuery = { __typename?: 'Query', getPatient?: { __typename?: 'Patient', id: string, name: string, dob: string } | null };
-
-export type GetAppointmentsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetAppointmentsQuery = { __typename?: 'Query', getAppointments?: Array<{ __typename?: 'Appointment', id: string, time: string, doctor: string } | null> | null };
-
-export const GetPatientDocument = gql`
-    query GetPatient($id: ID!) {
-  getPatient(id: $id) {
-    id
-    name
-    dob
-  }
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetPatientGQL extends Apollo.Query<GetPatientQuery, GetPatientQueryVariables> {
-    override document = GetPatientDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }
-export const GetAppointmentsDocument = gql`
-    query GetAppointments {
-  getAppointments {
-    id
-    time
-    doctor
-  }
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetAppointmentsGQL extends Apollo.Query<GetAppointmentsQuery, GetAppointmentsQueryVariables> {
-    override document = GetAppointmentsDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }

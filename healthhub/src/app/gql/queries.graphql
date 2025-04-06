@@ -1,4 +1,5 @@
-query GetPatient($id: ID!) {
+# src/app/gql/queries.graphql
+query GET_PATIENT($id: ID!) {
   getPatient(id: $id) {
     id
     name
@@ -6,7 +7,7 @@ query GetPatient($id: ID!) {
   }
 }
 
-query GetAppointments {
+query GET_APPOINTMENTS {
   getAppointments {
     id
     time

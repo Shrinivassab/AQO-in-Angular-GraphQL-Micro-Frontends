@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { GET_APPOINTMENTS, GetAppointmentsQuery } from '../gql/operations';
 import { map } from 'rxjs';
-
+import { Get_Appointments, Get_AppointmentsQuery } from '../gql/operations';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +13,7 @@ constructor(private apollo: Apollo) {
 
   getAppointments() {
     return this.apollo
-      .query<GetAppointmentsQuery>({ query: GET_APPOINTMENTS })
+      .query<Get_AppointmentsQuery>({ query: Get_Appointments })
       .pipe(map((result) => result.data)); // Extract the `data` property
   }
 }

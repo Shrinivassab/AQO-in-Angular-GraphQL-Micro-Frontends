@@ -1,7 +1,7 @@
 <div *ngIf="appointments$ | async as appointments">
   <ul>
     <li *ngFor="let appointment of appointments.getAppointments">
-      {{ appointment.time }} - {{ appointment.doctor }}
+      {{ appointment?.time }} - {{ appointment?.doctor }}
     </li>
   </ul>
 </div>
