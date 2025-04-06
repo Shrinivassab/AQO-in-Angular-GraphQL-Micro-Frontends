@@ -1,0 +1,6 @@
+<!-- src/app/patient/patient-profile/patient-profile.component.html -->
+<div *ngIf="user$ | async as user">
+    <h2>Patient Profile</h2>
+    <p>Name: {{ user.name }}</p>
+    <p>Date of Birth: {{ user.dob }}</p>
+  </div>

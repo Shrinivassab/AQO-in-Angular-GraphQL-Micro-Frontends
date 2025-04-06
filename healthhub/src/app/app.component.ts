@@ -1,16 +1,23 @@
-// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PatientProfileComponent } from './patient-profile/patient-profile.component';
-import { RouterOutlet } from '@angular/router'; // Import RouterOutlet
-import { Apollo } from 'apollo-angular';
+import { Apollo, gql } from 'apollo-angular';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, PatientProfileComponent], // Add RouterOutlet here
   templateUrl: './app.component.html',
+  standalone: false,
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'healthhub';
+
+  // In any component
+constructor(private apollo: Apollo) {
+  console.log('Apollo initialized!');
+}
+
+  testApollo() {
+    this.apollo.query({
+      query: gql`{ hello }` // Replace with your actual query
+    }).subscribe(console.log);
+  }
 }
