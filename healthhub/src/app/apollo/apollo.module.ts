@@ -8,16 +8,12 @@ import { InMemoryCache } from '@apollo/client/core';
   providers: [
     {
       provide: APOLLO_OPTIONS,
-      useFactory(httpLink: HttpLink) {
-        return {
-          cache: new InMemoryCache(),
-          link: httpLink.create({
-            uri: 'http://localhost:4000/graphql'
-          })
-        };
-      },
-      deps: [HttpLink]
-    }
-  ]
+      useFactory: (httpLink: HttpLink) => ({
+        cache: new InMemoryCache(),
+        link: httpLink.create({ uri: 'http://localhost:4000/graphql' }), // Ensure this matches your GraphQL endpoint
+      }),
+      deps: [HttpLink],
+    },
+  ],
 })
 export class ApolloModule {}

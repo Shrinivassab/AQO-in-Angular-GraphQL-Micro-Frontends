@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
+import { Get_Appointments } from './gql/operations';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ constructor(private apollo: Apollo) {
 
   testApollo() {
     this.apollo.query({
-      query: gql`{ hello }` // Replace with your actual query
+      query: Get_Appointments // Replace with your actual query
     }).subscribe(console.log);
   }
 }
