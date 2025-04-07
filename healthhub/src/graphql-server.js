@@ -1,8 +1,14 @@
 // graphql-server.js
 const { ApolloServer, gql } = require('apollo-server');
-
+const { faker } = require('@faker-js/faker');
 // Define your GraphQL schema
 const typeDefs = gql`
+  type User {
+    id: ID!
+    name: String!
+    role: String!
+  }
+
   type Patient {
     id: ID!
     name: String!
@@ -18,6 +24,7 @@ const typeDefs = gql`
   type Query {
     getPatient(id: ID!): Patient
     getAppointments: [Appointment]
+    getCurrentUser: User # Ensure this field is defined
   }
 `;
 
@@ -33,6 +40,11 @@ const resolvers = {
       { id: '1', time: '10:00 AM', doctor: 'Dr. Smith' },
       { id: '2', time: '11:00 AM', doctor: 'Dr. Johnson' },
     ],
+    getCurrentUser: () => ({ // Ensure this resolver is implemented
+      id: '1',
+      name: faker.name.findName(),
+      role: 'admin',
+    }),
   },
 };
 
