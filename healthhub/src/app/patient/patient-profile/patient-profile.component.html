@@ -1,9 +1,14 @@
 <div *ngIf="user$ | async as user; else loading">
     <h2>Patient Profile</h2>
-    <p>Name: {{ user.name }}</p>
-    <p>Date of Birth: {{ user.dob }}</p>
+    <p>Name: {{ user['user'].name }}</p>
+    <p>Date of Birth: {{ user['user'].dob }}</p>
+
+    <h3>Current User</h3>
+    <p>Name: {{ user['currentUser'].name }}</p>
+    <p>Role: {{ user['currentUser'].role }}</p>
   </div>
-  
+
   <ng-template #loading>
     <p>Loading patient data...</p>
   </ng-template>
+  

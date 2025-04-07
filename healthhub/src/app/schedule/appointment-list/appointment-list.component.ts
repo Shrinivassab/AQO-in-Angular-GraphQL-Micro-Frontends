@@ -1,8 +1,7 @@
 // src/app/schedule/appointment-list/appointment-list.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ScheduleService } from '../../services/schedule.service';
-import { Get_AppointmentsQuery } from '../../gql/operations';
 
 @Component({
   selector: 'app-appointment-list',
@@ -11,11 +10,14 @@ import { Get_AppointmentsQuery } from '../../gql/operations';
   styleUrls: ['./appointment-list.component.scss'],
 })
 export class AppointmentListComponent implements OnInit {
-  appointments$: Observable<Get_AppointmentsQuery> | undefined; // Use the generated type
+  appointments$: Observable<any> | undefined;
+  currentUser$: Observable<any> | undefined;
 
   constructor(private scheduleService: ScheduleService) {}
 
-  ngOnInit() {
-    this.appointments$ = this.scheduleService.getAppointments();
+  ngOnInit(): void {
+    const data$ = this.scheduleService.getAppointments();
+    this.appointments$ = data$.pipe(map((data) => data[0].getAppointments));
+    this.currentUser$ = data$.pipe(map((data) => data[0].currentUser));
   }
 }
