@@ -5,7 +5,7 @@ export type Get_PatientQueryVariables = Exact<{
 }>;
 
 
-export type Get_PatientQuery = { __typename?: 'Query', getPatient?: { __typename?: 'Patient', id: string, name: string, dob: string } | null };
+export type Get_PatientQuery = { __typename?: 'Query', data: { getPatient?: { __typename?: 'Patient', id: string, name: string, dob: string } }  | null };
 
 export type Get_AppointmentsQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -1,7 +1,8 @@
 // src/app/patient/patient-profile/patient-profile.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { PatientService } from '../../services/patient.service';
+import { Get_PatientQuery } from '../../gql/operations';
 
 @Component({
   selector: 'app-patient-profile',
@@ -15,6 +16,9 @@ export class PatientProfileComponent implements OnInit {
   constructor(private patientService: PatientService) {}
 
   ngOnInit(): void {
-    this.user$ = this.patientService.getPatient('1'); // Fetch patient with ID '1'
+    this.user$ = this.patientService.getPatient('1236').pipe(
+      tap((response) => console.log('Raw Apollo Response:', response)), // Log the raw response
+      map((result: Get_PatientQuery) => result.data?.getPatient)
+    );
   }
 }
