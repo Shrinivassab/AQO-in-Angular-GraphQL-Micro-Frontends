@@ -1,19 +1,21 @@
+// src/app/services/schedule.service.ts
 import { Injectable } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import { map } from 'rxjs';
-import { Get_Appointments, Get_AppointmentsQuery } from '../gql/operations';
+import { OrchestratorService } from '../orchestrator/orchestrator.service';
+import { Get_Appointments } from '../gql/operations';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ScheduleService {
-  // In any component
-constructor(private apollo: Apollo) {
-  console.log('Apollo Version:', this.apollo.client.version);
-}
+  constructor(private orchestrator: OrchestratorService) {}
 
-  getAppointments() {
-    return this.apollo
-      .query<Get_AppointmentsQuery>({ query: Get_Appointments })
-      .pipe(map((result) => result.data)); // Extract the `data` property
+  getAppointments(): Observable<any> {
+    return this.orchestrator.fetchQueries([
+      {
+        query: Get_Appointments,
+        variables: {},
+      },
+    ]);
   }
 }

@@ -5,12 +5,17 @@ export type Get_PatientQueryVariables = Exact<{
 }>;
 
 
-export type Get_PatientQuery = { __typename?: 'Query', data: { getPatient?: { __typename?: 'Patient', id: string, name: string, dob: string } }  | null };
+export type Get_PatientQuery = { __typename?: 'Query', data: { getPatient?: { __typename?: 'Patient', id: string, name: string, dob: string } } | null };
 
 export type Get_AppointmentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Get_AppointmentsQuery = { __typename?: 'Query', getAppointments?: Array<{ __typename?: 'Appointment', id: string, time: string, doctor: string } | null> | null };
+
+export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCurrentUserQuery = { __typename?: 'Query', getCurrentUser?: { __typename?: 'User', id: string, name: string, role: string } | null };
 
 
 export const Get_Patient = gql`
@@ -28,6 +33,15 @@ export const Get_Appointments = gql`
     id
     time
     doctor
+  }
+}
+    `;
+export const GetCurrentUser = gql`
+    query GetCurrentUser {
+  getCurrentUser {
+    id
+    name
+    role
   }
 }
     `;

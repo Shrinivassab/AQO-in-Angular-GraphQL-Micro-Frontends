@@ -14,3 +14,11 @@ query GET_APPOINTMENTS {
     doctor
   }
 }
+
+query GetCurrentUser {
+  getCurrentUser {
+    id
+    name
+    role
+  }
+}
