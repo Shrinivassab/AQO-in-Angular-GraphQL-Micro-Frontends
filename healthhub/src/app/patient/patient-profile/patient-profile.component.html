@@ -1,5 +1,9 @@
-<div *ngIf="user$ | async as user">
+<div *ngIf="user$ | async as user; else loading">
     <h2>Patient Profile</h2>
     <p>Name: {{ user.name }}</p>
     <p>Date of Birth: {{ user.dob }}</p>
   </div>
+  
+  <ng-template #loading>
+    <p>Loading patient data...</p>
+  </ng-template>

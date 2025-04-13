@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; // Required for Apollo
+import { RouterModule } from '@angular/router'; // Import RouterModule
 import { AppComponent } from './app.component';
 import { PatientModule } from './patient/patient.module';
 import { ScheduleModule } from './schedule/schedule.module';
@@ -14,12 +15,13 @@ import { Apollo } from 'apollo-angular';
   imports: [
     BrowserModule,
     HttpClientModule, // Must come before ApolloModule
+    RouterModule.forRoot([]), // Provide routing services globally
     ApolloModule, // Ensure this is imported
     PatientModule,
     ScheduleModule,
     AnalyticsModule,
   ],
-  providers: [Apollo], // Explicitly provide Apollo
+  providers: [Apollo], // No need to explicitly provide Apollo here
   bootstrap: [AppComponent],
 })
 export class AppModule {}

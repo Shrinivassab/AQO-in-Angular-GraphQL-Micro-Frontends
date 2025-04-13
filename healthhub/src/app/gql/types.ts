@@ -31,10 +31,18 @@ export type Patient = {
 export type Query = {
   __typename?: 'Query';
   getAppointments?: Maybe<Array<Maybe<Appointment>>>;
+  getCurrentUser?: Maybe<User>;
   getPatient?: Maybe<Patient>;
 };
 
 
 export type QueryGetPatientArgs = {
   id: Scalars['ID']['input'];
+};
+
+export type User = {
+  __typename?: 'User';
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  role: Scalars['String']['output'];
 };
