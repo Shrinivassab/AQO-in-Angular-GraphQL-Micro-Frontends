@@ -17,7 +17,8 @@ export class AppointmentListComponent implements OnInit {
 
   ngOnInit(): void {
     const data$ = this.scheduleService.getAppointments();
-    this.appointments$ = data$.pipe(map((data) => data[0].getAppointments));
-    this.currentUser$ = data$.pipe(map((data) => data[0].currentUser));
+
+    this.appointments$ = data$.pipe(map((data) => data.appointments)); // Extract appointments
+    this.currentUser$ = data$.pipe(map((data) => data.currentUser));   // Extract currentUser
   }
 }
