@@ -57,3 +57,14 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+## Framework-Aware Query Orchestration for Angular Micro-Frontends
+
+[![DOI](https://zenodo.org/badge/960702732.svg)](https://doi.org/10.5281/zenodo.17149147)
+
+This repository contains the raw benchmark data and materials used in the paper "Framework-Aware Query Orchestration for Angular Micro-Frontends: A Type-Safe Approach to GraphQL Deduplication and Performance Optimization". The data is archived with a DOI for long-term access.
+
+## Data
+- `data/raw_benchmark_data.csv`: Synthetic raw data from 30 trials per configuration.
+- [Zenodo Archive](https://doi.org/10.5281/zenodo.17149147)
