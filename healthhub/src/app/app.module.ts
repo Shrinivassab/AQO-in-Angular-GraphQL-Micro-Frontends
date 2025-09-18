@@ -2,13 +2,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; // Required for Apollo
-import { RouterModule } from '@angular/router'; // Import RouterModule
+import { Router, RouterModule } from '@angular/router'; // Import RouterModule
 import { AppComponent } from './app.component';
 import { PatientModule } from './patient/patient.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { ApolloModule } from './apollo/apollo.module'; // Import ApolloModule
 import { Apollo } from 'apollo-angular';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { Apollo } from 'apollo-angular';
     PatientModule,
     ScheduleModule,
     AnalyticsModule,
+    AppRoutingModule
   ],
   providers: [Apollo], // No need to explicitly provide Apollo here
   bootstrap: [AppComponent],

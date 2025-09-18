@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Get_Appointments } from './gql/operations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,17 @@ import { Get_Appointments } from './gql/operations';
 })
 export class AppComponent {
   title = 'healthhub';
+  constructor(private router: Router) {}
 
-  // In any component
-constructor(private apollo: Apollo) {
-  console.log('Apollo initialized!');
-}
+  navigateToPatientProfile() {
+    this.router.navigate(['/patient', '1']); // Navigate to /patient/1
+  }
 
-  testApollo() {
-    this.apollo.query({
-      query: Get_Appointments // Replace with your actual query
-    }).subscribe(console.log);
+  navigateToAppointments() {
+    this.router.navigate(['/appointments']);
+  }
+
+  navigateToDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 }

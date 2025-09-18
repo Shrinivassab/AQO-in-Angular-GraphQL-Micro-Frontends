@@ -12,34 +12,29 @@ import { PatientService } from '../../services/patient.service';
 })
 export class PatientProfileComponent implements OnInit {
   user$: Observable<any> | undefined;
+  currentUser$: Observable<any> | undefined;
 
   constructor(private patientService: PatientService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.user$ = this.route.data.pipe(
+    const routeData$ = this.route.data.pipe(
       tap((data) => console.log('Route Data:', data)),
-      map((data) => data['user']),
-      tap((prefetchedData) => console.log('Prefetched Data:', prefetchedData)),
+      map((data) => ({
+        user: data['user'], // Extract prefetched 'user'
+        currentUser: data['currentUser'], // Extract prefetched 'currentUser'
+      }))
+    );
+
+    this.user$ = routeData$.pipe(
+      map((data) => data.user), // Extract the `user` field
       switchMap((prefetchedData) => {
         if (prefetchedData) {
-          return of(prefetchedData);
+          return of(prefetchedData); // Use prefetched data
         }
-        return this.patientService.getPatient('1');
-      }),
-      tap((result) => console.log('Apollo Response:', result)),
-      // Update this mapping to properly extract the patient data
-      map((result) => {
-        // If using prefetched data, it might already be the patient object
-        if (result?.data?.getPatient) {
-          return result.data.getPatient;
-        }
-        // If it's the first item in an array with data.getPatient
-        if (Array.isArray(result) && result[0]?.data?.getPatient) {
-          return result[0].data.getPatient;
-        }
-        // Fallback to return whatever we have
-        return result;
+        return this.patientService.getPatient('1'); // Fetch dynamically if no prefetched data
       })
     );
+
+    this.currentUser$ = routeData$.pipe(map((data) => data.currentUser)); // Extract the `currentUser` field
   }
 }

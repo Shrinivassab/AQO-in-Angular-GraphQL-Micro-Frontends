@@ -1,7 +1,14 @@
+<!-- src/app/schedule/appointment-list/appointment-list.component.html -->
 <div *ngIf="appointments$ | async as appointments">
   <ul>
-    <li *ngFor="let appointment of appointments.getAppointments">
-      {{ appointment?.time }} - {{ appointment?.doctor }}
+    <li *ngFor="let appointment of appointments">
+      {{ appointment.time }} - {{ appointment.doctor }}
     </li>
   </ul>
+</div>
+
+<div *ngIf="currentUser$ | async as currentUser">
+  <h3>Current User</h3>
+  <p>Name: {{ currentUser.name }}</p>
+  <p>Role: {{ currentUser.role }}</p>
 </div>

@@ -1,6 +1,6 @@
-// graphql-server.js
 const { ApolloServer, gql } = require('apollo-server');
 const { faker } = require('@faker-js/faker');
+
 // Define your GraphQL schema
 const typeDefs = gql`
   type User {
@@ -42,7 +42,7 @@ const resolvers = {
     ],
     getCurrentUser: () => ({ // Ensure this resolver is implemented
       id: '1',
-      name: faker.name.findName(),
+      name: faker.person.fullName(), // Use faker.person.fullName() instead of faker.name.findName()
       role: 'admin',
     }),
   },

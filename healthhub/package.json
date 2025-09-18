@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+  "start": "ng serve",
+  "start:server": "node src/graphql-server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -21,7 +22,6 @@
     "@faker-js/faker": "^9.6.0",
     "apollo-angular": "^10.0.3",
     "apollo-server": "^3.13.0",
-    "faker": "^6.6.6",
     "graphql": "^16.10.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
