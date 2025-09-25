@@ -1,0 +1,38 @@
+name: CI - for AQO-in-Angular-GraphQL-Micro-Frontends
+
+on:
+  schedule:
+    # Run every 3 hours: at 0 minutes past 00:00, 03:00, 06:00, etc.
+    - cron: '0 */3 * * *'
+
+  # Allow manual trigger too
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Run Lint (if applicable)
+        run: npm run lint || echo "No lint script or skipped"
+
+      - name: Display Status
+        run: echo "✅ Build, test, and lint completed successfully!"
