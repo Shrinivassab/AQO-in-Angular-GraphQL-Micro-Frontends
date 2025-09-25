@@ -1,2 +1,70 @@
-# AQO-in-Angular-GraphQL-Micro-Frontends
-This repository contains research, implementation, and benchmarks for Adaptive Query Orchestration, an approach to optimizing GraphQL queries in Angular micro-frontends. The project introduces a client-side query orchestrator that reduces redundant data fetches and enhances application efficiency.
+# Healthhub
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+
+## Development server
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+## Framework-Aware Query Orchestration for Angular Micro-Frontends
+
+[![DOI](https://zenodo.org/badge/960702732.svg)](https://doi.org/10.5281/zenodo.17149147)
+
+This repository contains the raw benchmark data and materials used in the paper "Framework-Aware Query Orchestration for Angular Micro-Frontends: A Type-Safe Approach to GraphQL Deduplication and Performance Optimization". The data is archived with a DOI for long-term access.
+
+## Data
+- `data/raw_benchmark_data.csv`: Synthetic raw data from 30 trials per configuration.
+- [Zenodo Archive](https://doi.org/10.5281/zenodo.17149147)
