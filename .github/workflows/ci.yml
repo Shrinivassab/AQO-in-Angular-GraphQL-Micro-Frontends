@@ -28,8 +28,15 @@ jobs:
       - name: Build Project
         run: npm run build
 
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
+
       - name: Run Tests
         run: npm test
+        env:
+          CI: true
 
       - name: Run Lint
         run: npm run lint:reactive

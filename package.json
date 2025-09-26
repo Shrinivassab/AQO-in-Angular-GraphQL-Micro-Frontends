@@ -7,7 +7,7 @@
     "start:server": "node src/graphql-server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --browsers=ChromeHeadless --watch=false --no-progress",
     "lint:reactive": "reactive-lint src/**/*.ts"
   },
   "private": true,
