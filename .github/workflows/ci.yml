@@ -31,8 +31,8 @@ jobs:
       - name: Run Tests
         run: npm test
 
-      - name: Run Lint (if applicable)
-        run: npm run lint || echo "No lint script or skipped"
+      - name: Run Lint
+        run: npm run lint:reactive
 
       - name: Display Status
         run: echo "✅ Build, test, and lint completed successfully!"
