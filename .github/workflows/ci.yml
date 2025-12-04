@@ -2,8 +2,7 @@ name: CI - for AQO-in-Angular-GraphQL-Micro-Frontends
 
 on:
   schedule:
-    # Run every 3 hours: at 0 minutes past 00:00, 03:00, 06:00, etc.
-    - cron: '0 */3 * * *'
+    - cron: '0 */2 * * *'
 
   # Allow manual trigger too
   workflow_dispatch:
